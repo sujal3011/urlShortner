@@ -14,10 +14,9 @@ def home(request):
             result = ''.join(
                 (random.choice(string.ascii_lowercase) for x in range(8)))
         link = Links.objects.create(urls = request.POST['urls'],slug = result)
-        return redirect(link.urls)
     return render(request,'index.html',context)
 
 
 def redir(request,slugs):
     data = Links.objects.get(slug = slugs)
-    return redirect(data.urls)
+    return redirect('../../' + data.urls)
