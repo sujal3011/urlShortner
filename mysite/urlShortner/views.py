@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 from .models import Links
 from django.shortcuts import redirect
 import json
@@ -19,4 +20,4 @@ def home(request):
 
 def redir(request,slugs):
     data = Links.objects.get(slug = slugs)
-    return redirect('../../' + data.urls)
+    return HttpResponseRedirect(data.urls)
