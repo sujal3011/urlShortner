@@ -21,7 +21,7 @@ def home(request):
         context={
             "link":link
             }
-        return render(request,'pp.html',context)
+        return render(request,'result.html',context)
     return render(request,'index.html',context)
 
 
