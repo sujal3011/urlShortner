@@ -11,7 +11,8 @@ def home(request):
     context = {}
     if request.method == 'POST':
         result = request.POST['slug']
-        if result is None:
+        t=''
+        if result is t:
             result = ''.join(
                 (random.choice(string.ascii_letters) for x in range(8)))
         print(result)
