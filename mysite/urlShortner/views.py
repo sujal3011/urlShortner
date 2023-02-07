@@ -11,12 +11,16 @@ def home(request):
     context = {}
     if request.method == 'POST':
         result = request.POST['slug']
-        if result is None:
+        t=''
+        if result is t:
             result = ''.join(
-                (random.choice(string.ascii_lowercase) for x in range(8)))
+                (random.choice(string.ascii_letters) for x in range(8)))
+        print(result)
         link = Links.objects.create(urls = request.POST['urls'],slug = result)
+        link.save()
         context={
-            "link":link}
+            "link":link
+            }
         return render(request,'pp.html',context)
     return render(request,'index.html',context)
 
